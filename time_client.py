@@ -24,9 +24,10 @@ s = socket.socket()
 server = (NIST_URL, NIST_PORT)
 s.connect(server)
 data = s.recv(NIST_BYTES)
+s.close()
 decoded_data = int.from_bytes(data, byteorder='big')
 
-print(f"NIST time: {decoded_data}")
+print(f"NIST time:   {decoded_data}")
 print(f"System Time: {system_seconds_since_1900()}")
 
 
